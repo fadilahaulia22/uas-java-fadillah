@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Review</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center mb-4">Add Review</h1>
+                <form action="#" th:action="@{/save-review}" method="post">
+                    <input type="text" class="form-control" th:field="${review.idReview}" />
+                    <div class="form-group">
+                        <label for="customer">Id Customer</label>
+                        <select id="customer" name="customer" class="form-control"
+                            th:field="${review.customer.idCustomer}">
+                            <option value="">Pilih id idCustomer</option>
+                            <option th:each="s : ${customer}" th:value="${s.idCustomer}" th:text="${s.idCustomer}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="car">Id Car</label>
+                        <select id="car" name="car" class="form-control" th:field="${review.car.idCar}">
+                            <option value="">Pilih id idCar</option>
+                            <option th:each="s : ${car}" th:value="${s.idCar}" th:text="${s.idCar}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                            <option value="">Pilih rating</option>
+                            <label><input type="radio" name="pilih rating" value="1" /> 1</label>
+                            <label><input type="radio" name="pilih rating" value="2" /> 2</label>
+                            <label><input type="radio" name="pilih rating" value="3" /> 3</label>
+                            <label><input type="radio" name="pilih rating" value="4" /> 4</label>
+                            <label><input type="radio" name="pilih rating" value="5" /> 5</label>
+                            <label><input type="radio" name="pilih rating" value="6" /> 6</label>
+                            <label><input type="radio" name="pilih rating" value="7" /> 7</label>
+                            <label><input type="radio" name="pilih rating" value="8" /> 8</label>
+                            <label><input type="radio" name="pilih rating" value="9" /> 9</label>
+                            <label><input type="radio" name="pilih rating" value="10" /> 10</label>
+                    </div>
+
+                    <input type="text" placeholder=" your comment" th:field="${review.comment}"
+                         class="form-control mb-4 col-4" />
+                    <!-- <div class="form-group">
+                        <label for="customer">review Date</label>
+                        <input type="date" class="form-control" th:field="${review.reviewDate}" />
+                    </div> -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Kirim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <a th:href="@{/review}">Back to review List</a>
+</body>
+
+</html>

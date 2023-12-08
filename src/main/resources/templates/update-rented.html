@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Update Rented Data</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      .form-group {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <h1 class="text-center mb-4">Update Rented Data</h1>
+          <form
+            action="#"
+            th:action="@{/save-rented}"
+            method="post"
+            th:object="${rented}"
+          >
+            <input type="hidden" th:field="*{idRented}" />
+
+            <div class="form-group">
+              <label for="car">ID Car</label>
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{car.idCar}"
+                readonly="readonly"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="customer">ID Customer</label>
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{customer.idCustomer}"
+                readonly="readonly"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="rentalDate">Rental Date</label>
+              <input
+                type="datetime-local"
+                class="form-control"
+                th:field="*{rentalDate}"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="returnDate">Return Date</label>
+              <input
+                type="datetime-local"
+                class="form-control"
+                th:field="*{returnDate}"
+              />
+            </div>
+
+            <input
+              type="text"
+              placeholder="Payment Status"
+              th:field="*{paymentStatus}"
+              class="form-control mb-4 col-4"
+            />
+            <input
+              type="number"
+              placeholder="Total Biaya"
+              th:field="*{tCost}"
+              class="form-control mb-4 col-4"
+            />
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <a th:href="@{/rented}">Back to Rented List</a>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Update User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Update User</h1>
+        <form th:action="@{/add-save-users}" th:object="${users}" method="post">
+            <input type="text" class="form-control mb-4 col-4" placeholder="Input id user" th:field="*{idUser}" />
+            <input type="text" placeholder="Input new username" th:field="*{username}" class="form-control mb-4 col-4" />
+            <input type="password" placeholder="Input new password" th:field="*{password}" class="form-control mb-4 col-4" />
+            <button type="submit" class="btn btn-success col-2">Save Changes</button>
+        </form>
+        <hr />
+        <a th:href="@{/list-user}">Back to User List</a>
+    </div>
+</body>
+
+</html>

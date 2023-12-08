@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Update Payment Methode</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Update Paymnet Methode</h1>
+        <form th:action="@{/add-save-pMethode}" th:object="${pMethode}" method="post">
+            <input type="text" class="form-control mb-4 col-4" placeholder="Input id pMethode" th:field="*{idMethod}" />
+            <input type="text" placeholder="Input jenis methode" th:field="*{methodName}" class="form-control mb-4 col-4" />
+            <button type="submit" class="btn btn-success col-2">Save Changes</button>
+        </form>
+        <hr />
+        <a th:href="@{/list-pMethode}">Back to Customer List</a>
+    </div>
+</body>
+
+</html>

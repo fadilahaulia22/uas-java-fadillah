@@ -1,0 +1,309 @@
+/* Googlefont*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 240px;
+  background: rgb(30, 25, 25);
+  transition: all 0.5s ease;
+}
+
+.sidebar.active {
+  width: 60px;
+}
+
+.sidebar .logo-details {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  /* //yg ditambah */
+  justify-content: center;
+}
+
+.sidebar .logo-details i {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  /* min-width: 60px;
+  text-align: center; */
+}
+
+.sidebar .logo-details .logo_name {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sidebar .nav-links {
+  margin-top: 10px;
+}
+
+.sidebar .nav-links li {
+  position: relative;
+  list-style: none;
+  height: 50px;
+}
+
+.sidebar .nav-links li a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.sidebar .nav-links li a.active {
+  background: rgb(235, 177, 232);
+}
+
+.sidebar .nav-links li a:hover {
+  background: rgb(235, 177, 232);
+}
+
+.sidebar .nav-links li i {
+  min-width: 60px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
+
+.sidebar .nav-links li a .links_name {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+@media (max-width: 1240px) {
+  .sidebar {
+    width: 60px;
+  }
+
+  .sidebar.active {
+    width: 220px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sidebar {
+    width: 0;
+  }
+
+  .sidebar.active {
+    width: 60px;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 900, "GRAD" 0, "opsz" 299;
+}
+
+/* .container {
+  width: 80%;
+  margin: 0 0 0 230px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+} */
+
+.container {
+  width: calc(100% - 240px);
+  margin-left: 240px;
+  padding: 20px;
+  background-color: #ecf0f1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.dashboard-header h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.dashboard-header a {
+  font-size: 16px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* card */
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-batween; */
+}
+
+/* mobil tersedia */
+/* .custom-cars {
+  border-left: 5px solid #f0ad4e;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.45);
+  width: 15%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 0.3rem;
+  margin: 40px 0 0 250px;
+} */
+
+.custom-card {
+  border-left: 5px solid #f39c12; /* Warna border khusus kartu */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.45);
+  width: 24%;
+  height: 7rem;
+  margin: 12px;
+  border-radius: 0.3rem;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.custom-card:nth-child(odd) {
+  background-color: #fff;
+}
+
+.custom-card:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.custom-card .card-icon {
+  font-size: 2rem;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-dark {
+  color: #343a40;
+}
+
+.font-weight-bold {
+  font-weight: 700;
+}
+
+.text-gray-800 {
+  color: #343a40;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.mr-2 {
+  margin-right: 3.5rem;
+}
+
+.car-icon {
+  font-size: 2rem;
+}
+
+
+.user {
+  font-size: 1.5rem;
+}
+
+.user-icon {
+  font-size: 2rem;
+}
+
+
+.card-icon {
+  font-size: 2rem;
+}
+
+/* akun */
+/* .custom-accounts {
+  border-left: 5px solid #c91bc9;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.45);
+  width: 15%;
+  height: 100%;
+  padding: 20px;
+  margin: 40px 0 0 90px;
+  border-radius: 0.3rem;
+} */
+
+/* // Payment Methods */
+/* .custom-pmethodes {
+  border-left: 5px solid rgb(36, 199, 44);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.45);
+  width: 15%;
+  height: 100%;
+  padding: 20px;
+  margin: 40px 0 0 90px;
+  border-radius: 0.3rem;
+} */
+
+/* //Rented */
+/* .custom-rented {
+  border-left: 5px solid #c91bc9;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.45);
+  width: 15%;
+  height: 100%;
+  padding: 20px;
+  margin: 40px 0 0 90px;
+  border-radius: 0.3rem;
+} */
+
+.akun {
+  font-size: 2rem;
+  padding-left: 30px;
+}
+
+.card-login {
+  margin: 40px 0;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #ecf0f1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-akun {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+.kata {
+  margin-right: 290px;
+}
+
+.search-input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+/* Button style */
+.search-button {
+  padding: 8px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
+.buttons button {
+  margin-right: 10px;
+}

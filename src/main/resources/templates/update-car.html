@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Update Car</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Update Car</h1>
+      <form th:action="@{/add-save-car}"
+        th:object="${car}"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input
+          type="hidden"
+          class="form-control mb-4 col-4"
+          placeholder="Input id Car"
+          th:field="*{idCar}"
+        />
+        <input
+          type="text"
+          placeholder="Input Brand Car"
+          th:field="*{brand}"
+          class="form-control mb-4 col-4"
+        />
+        <input
+          type="text"
+          placeholder="Input Type Car"
+          th:field="*{typeCar}"
+          class="form-control mb-4 col-4"
+        />
+        <input
+          type="number"
+          placeholder="Input Tahun Produksi"
+          th:field="*{productionYear}"
+          class="form-control mb-4 col-4"
+        />
+        <input
+          type="number"
+          placeholder="Input Price"
+          th:field="*{price}"
+          class="form-control mb-4 col-4"
+        />
+        <input
+          type="number"
+          placeholder="Input Seat"
+          th:field="*{seats}"
+          class="form-control mb-4 col-4"
+        />
+        <input
+          type="number"
+          placeholder="Input Jumlah Bagasi "
+          th:field="*{carTrunk}"
+          class="form-control mb-4 col-4"
+        />
+        <input
+          type="number"
+          placeholder="Input Stok"
+          th:field="*{stock}"
+          class="form-control mb-4 col-4"
+        />
+        <input
+          type="text"
+          placeholder="Driver"
+          th:field="*{driver}"
+          class="form-control mb-4 col-4"
+        />
+        <input
+          type="file"
+          placeholder="Image"
+          th:field="*{image}"
+          class="form-control mb-4 col-4"
+        />
+        <button type="submit" class="btn btn-success col-2">
+          Save Changes
+        </button>
+      </form>
+      <hr />
+      <a th:href="@{/list-car}">Back to Car List</a>
+    </div>
+  </body>
+</html>

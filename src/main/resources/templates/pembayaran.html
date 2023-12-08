@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Pemmbayaran</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      .container {
+        margin-top: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      th,
+      td {
+        text-align: center;
+      }
+
+      .btn {
+        margin-top: 20px;
+      }
+
+      .card-login {
+  margin: 40px 0;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #ecf0f1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+button a{
+  color: white;
+}
+    </style>
+  </head>
+
+  <body>
+
+
+      <div class="row">
+        <div class="col-md-6 card-login">
+          <h3>Metode Pembayaran</h3>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="payment_method"
+              id="transfer_bank"
+              value="transfer_bank"
+              checked
+            />
+            <label class="form-check-label" for="transfer_bank"
+              >Transfer Bank</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="payment_method"
+              id="kartu_kredit"
+              value="kartu_kredit"
+            />
+            <label class="form-check-label" for="kartu_kredit"
+              >Kartu Kredit</label
+            >
+          </div>
+        </div>
+
+
+        <div class="col-md-3 card-login">
+          <h2>Kode Promo</h2>
+          <input
+            type="text"
+            class="form-control"
+            id="kode_promo"
+            placeholder="Masukkan kode promo"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 card-login">
+          <h2>Rincian Harga</h2>
+          <table class="table table-bordered">
+            mnbcjhdgfjsfjhdfkhdsjk
+        </div>
+
+       <div class="col-md-12 mt-3 d-flex justify-content-end">
+         <h2>Total Harga</h2>
+         <h3>Rp 1.000</h3>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-primary"><a th:href="@{/end}">  Lakukan Proses Pembayaran
+          </a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

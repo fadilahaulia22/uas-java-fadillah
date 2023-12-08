@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Home - Admin</title>
+    <link rel="stylesheet" href="./home-admin.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class="bx bx-car"></i>
+        <span class="logo_name">VRides</span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a th:href="@{/beranda-admin}" class="active">
+            <i class="bx bxs-grid"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+        <li></li>
+        <li>
+          <a th:href="@{${link7}}">
+            <i class="bx bxs-crown"></i>
+            <span class="links_name">ADMIN</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{${link8}}">
+            <i class="bx bxs-user"></i>
+            <span class="links_name">USER</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{${link1}}">
+            <i class="bx bxs-car"></i>
+            <span class="links_name">CAR</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{${link2}}">
+            <i class="bx bxs-user-plus"></i>
+            <span class="links_name">CUSTOMER</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{${link3}}">
+            <i class="bx bx-note"></i>
+            <span class="links_name">PAYMENT</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{${link4}}">
+            <i class="bx bxs-wallet"></i>
+            <span class="links_name">PAYMENT METHODE</span>
+          </a>
+        </li>
+
+        <li>
+          <a th:href="@{${link5}}">
+            <i class="bx bx-data"></i>
+            <span class="links_name">RENTED</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{${link6}}">
+            <i class="bx bx-message-dots"></i>
+            <span class="links_name">REVIEW</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div class="dashboard-header">
+        <h1>Dashboard Rental Mobil</h1>
+        <a th:href="@{/list-admin}"
+          >Akun
+          <i class="bx bx-user-circle user"></i>
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="custom-card">
+          <a style="text-decoration: none">
+            <div class="d-flex align-items-center">
+              <div class="mr-2">
+                <div
+                  class="text-xs font-weight-bold text-dark text-uppercase mb-1"
+                >
+                  Admin
+                </div>
+                <div
+                  class="h5 mb-0 font-weight-bold text-gray-800"
+                  th:text="${totalAdmins}"
+                ></div>
+              </div>
+              <div>
+                <i class="bx bxs-crown car-icon"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="custom-card">
+          <a style="text-decoration: none">
+            <div class="d-flex align-items-center">
+              <div class="mr-2">
+                <div
+                  class="text-xs font-weight-bold text-dark text-uppercase mb-1"
+                >
+                  User
+                </div>
+                <div
+                  class="h5 mb-0 font-weight-bold text-gray-800"
+                  th:text="${totalUsers}"
+                ></div>
+              </div>
+              <div>
+                <i class="bx bx-user-check car-icon"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="custom-card">
+          <a style="text-decoration: none">
+            <div class="d-flex align-items-center">
+              <div class="mr-2">
+                <div
+                  class="text-xs font-weight-bold text-dark text-uppercase mb-1"
+                >
+                  Car
+                </div>
+                <div
+                  class="h5 mb-0 font-weight-bold text-gray-800"
+                  th:text="${totalCars}"
+                ></div>
+              </div>
+              <div>
+                <i class="bx bx-car car-icon"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="custom-card">
+          <a style="text-decoration: none">
+            <div class="d-flex align-items-center">
+              <div class="mr-2">
+                <div
+                  class="text-xs font-weight-bold text-dark text-uppercase mb-1"
+                >
+                  Customer
+                </div>
+                <div
+                  class="h5 mb-0 font-weight-bold text-gray-800"
+                  th:text="${totalCustomers}"
+                ></div>
+              </div>
+              <div>
+                <i class="bx bx-user-circle user-icon"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="custom-card">
+          <a style="text-decoration: none">
+            <div class="d-flex align-items-center">
+              <div class="mr-2">
+                <div
+                  class="text-xs font-weight-bold text-dark text-uppercase mb-1"
+                >
+                  Payment
+                </div>
+                <div
+                  class="h5 mb-0 font-weight-bold text-gray-800"
+                  th:text="${totalPayments}"
+                ></div>
+              </div>
+              <div>
+                <i class="bx bx-credit-card card-icon"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="custom-card">
+          <a style="text-decoration: none">
+            <div class="d-flex align-items-center">
+              <div class="mr-2">
+                <div
+                  class="text-xs font-weight-bold text-dark text-uppercase mb-1"
+                >
+                  Payment Methodes
+                </div>
+                <div
+                  class="h5 mb-0 font-weight-bold text-gray-800"
+                  th:text="${totalPaymentMethodes}"
+                ></div>
+              </div>
+              <div>
+                <i class="bx bxs-wallet car-icon"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="custom-card">
+          <a style="text-decoration: none">
+            <div class="d-flex align-items-center">
+              <div class="mr-2">
+                <div
+                  class="text-xs font-weight-bold text-dark text-uppercase mb-1"
+                >
+                  Rented
+                </div>
+                <div
+                  class="h5 mb-0 font-weight-bold text-gray-800"
+                  th:text="${totalRenteds}"
+                ></div>
+              </div>
+              <div>
+                <i class="bx bx-time-five car-icon"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="custom-card">
+          <a style="text-decoration: none">
+            <div class="d-flex align-items-center">
+              <div class="mr-2">
+                <div
+                  class="text-xs font-weight-bold text-dark text-uppercase mb-1"
+                >
+                  Review
+                </div>
+                <div
+                  class="h5 mb-0 font-weight-bold text-gray-800"
+                  th:text="${totalReviews}"
+                ></div>
+              </div>
+              <div>
+                <i class="bx bx-message-rounded-detail card-icon"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-login">
+      <div class="login-akun">
+        <h4>Akun yang sedang Login</h4>
+      </div>
+      <a class="kata">
+        <p>Username : <span th:text="${admin.username}"></span> </p>
+        <p>Email : <span th:text="${admin.email}"></span> </p>
+        <p>Tanggal Login : </p>
+        <p>Server : Localhost</p>
+      </a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Show All Payment in Velocity Rides</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./home-admin.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!----SIDEBAR----->
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class="bx bx-car"></i>
+        <span class="logo_name">VRides</span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a th:href="@{/beranda-admin}" class="active">
+            <i class="bx bxs-grid"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+        <li></li>
+        <li>
+          <a th:href="@{/list-admin}">
+            <i class="bx bxs-crown"></i>
+            <span class="links_name">ADMIN</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/users}">
+            <i class="bx bxs-user"></i>
+            <span class="links_name">USER</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/list-car}">
+            <i class="bx bxs-car"></i>
+            <span class="links_name">CAR</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/list-customer}">
+            <i class="bx bxs-user-plus"></i>
+            <span class="links_name">CUSTOMER</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/payment}">
+            <i class="bx bx-note"></i>
+            <span class="links_name">PAYMENT</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/list-pMethode}">
+            <i class="bx bxs-wallet"></i>
+            <span class="links_name">PAYMENT METHODE</span>
+          </a>
+        </li>
+
+        <li>
+          <a th:href="@{/rented}">
+            <i class="bx bx-data"></i>
+            <span class="links_name">RENTED</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/review}">
+            <i class="bx bx-message-dots"></i>
+            <span class="links_name">REVIEW</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!---------------------------------------------------->
+
+    <div class="container">
+      <div class="dashboard-header">
+        <h1>Show Payment</h1>
+        <a th:href="@{/users}"
+          >Akun
+          <i class="bx bx-user-circle user"></i>
+        </a>
+      </div>
+      <a th:href="@{/add-payment}" class="btn btn-primary btn-sm mb-3"> Add </a>
+      <div class="table-responsive">
+        <table
+          class="table table-striped table-hover table-bordered w-75 mb-4 mx-4 mt-1"
+        >
+          <thead class="table-dark text-center">
+            <tr>
+              <th scope="col">Id Payment</th>
+              <th scope="col">Id Customer</th>
+              <th scope="col">Id Methode</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tr th:each="a : ${payment}">
+            <td th:text="${a.idPayment}" class="text-center"></td>
+            <td th:text="${a.customer.idCustomer}"></td>
+            <td th:text="${a.paymentMethod.idMethod}"></td>
+            <td class="d-flex flex-row justify-content-evenly">
+              <a
+                th:href="@{/up-payment/{idPayment}(idPayment=${a.idPayment})}"
+                class="btn btn-warning me-2"
+                ><i class="bx bx-edit"></i
+              ></a>
+              <a
+                th:href="@{/del-payment/{idPayment}(idPayment=${a.idPayment})}"
+                class="btn btn-danger"
+                ><i class="bx bx-trash"></i
+              ></a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
