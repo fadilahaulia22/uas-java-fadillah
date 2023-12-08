@@ -7,11 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class BerandaController {
 
-    @GetMapping("/beranda-awal")
+    //TAPILAN BERANDA AWAL(USER)
+    @GetMapping("/beranda")
     public String beranda(Model model){
         return "beranda";
     }
 
+    // ABOUT
+    @GetMapping("/about")
+    public String about() {
+        return "redirect:/beranda#how"; // Redirect ke bagian dengan ID "how"
+    }
 
     // CONTACT
     @GetMapping("/contact")
@@ -19,11 +25,15 @@ public class BerandaController {
         return "contact-beranda";
     }
 
+
+    
+
     @GetMapping("/pembayaran")
     public String pembayaran(){
         return "pembayaran";
     }
 
+    
     @GetMapping("/end")
     public String end(){
         return "end";

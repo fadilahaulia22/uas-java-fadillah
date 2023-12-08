@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,32 +58,32 @@ public class CarController {
 
     @PostMapping("/add-save-car")
     public String saveCar(
-            @RequestParam("brand") String brand,
-            @RequestParam("typeCar") String typeCar,
-            @RequestParam("productionYear") Integer productionYear,
-            @RequestParam("price") Long price,
-            @RequestParam("seats") Integer seats,
-            @RequestParam("carTrunk") Integer carTrunk,
-            @RequestParam("stock") Integer stock,
-            @RequestParam("driver") String driver,
-            @RequestParam("image") MultipartFile multipartFile,
-            Model model) {
+            // @RequestParam("brand") String brand,
+            // @RequestParam("typeCar") String typeCar,
+            // @RequestParam("productionYear") Integer productionYear,
+            // @RequestParam("price") Long price,
+            // @RequestParam("seats") Integer seats,
+            // @RequestParam("carTrunk") Integer carTrunk,
+            // @RequestParam("stock") Integer stock,
+            // @RequestParam("driver") String driver,
+            // @RequestParam("image") MultipartFile multipartFile,
+            @ModelAttribute Car car,@RequestParam("image") MultipartFile multipartFile) {
 
         try {
-            Car car = new Car();
+            //Car car = new Car();
             Path targetPath = Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "static",
                     multipartFile.getOriginalFilename());
             multipartFile.transferTo(targetPath.toFile());
             String url = "http://localhost:8080/" + multipartFile.getOriginalFilename();
 
-            car.setBrand(brand);
-            car.setTypeCar(typeCar);
-            car.setProductionYear(productionYear);
-            car.setPrice(price);
-            car.setSeats(seats);
-            car.setCarTrunk(carTrunk);
-            car.setStock(stock);
-            car.setDriver(driver);
+            // car.setBrand(brand);
+            // car.setTypeCar(typeCar);
+            // car.setProductionYear(productionYear);
+            // car.setPrice(price);
+            // car.setSeats(seats);
+            // car.setCarTrunk(carTrunk);
+            // car.setStock(stock);
+            // car.setDriver(driver);
             car.setImage(url);
 
             carRepository.save(car);
@@ -93,27 +94,49 @@ public class CarController {
         return "redirect:/list-car";
     }
 
+    @PostMapping("/update-save-car")
+    public String updateCar(@ModelAttribute Car car, @RequestParam("image") MultipartFile multipartFile) {
+        try {
+            if (!multipartFile.isEmpty()) {
+                // Save image logic remains the same
+                Path targetPath = Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "static",
+                        multipartFile.getOriginalFilename());
+                multipartFile.transferTo(targetPath.toFile());
+                String url = "http://localhost:8080/" + multipartFile.getOriginalFilename();
+                car.setImage(url);
+            }
+
+            carRepository.save(car);
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle exception or redirect to an error page
+        }
+        return "redirect:/list-car";
+    }
+
+
     @GetMapping("/edit-car/{idCar}")
     public String editCar(@PathVariable(value = "idCar") Integer idCar, Model model) {
-        Car car = carRepository.getReferenceById(idCar);
+        Car car = carRepository.findById(idCar).orElseThrow();
         model.addAttribute("car", car);
         return "update-car";
     }
+
     @GetMapping("/delete-car/{idCar}")
     public String deleteCar(@PathVariable(value = "idCar") Integer idCar) {
         carRepository.deleteById(idCar);
         return "redirect:/list-car";
     }
 
-    //booking
+    //BOOKING
     @GetMapping("/detail-booking/{idCar}")
         public String detailBook(@PathVariable Integer idCar, Model model) {
         Car car = carRepository.findById(idCar).orElseThrow();
         model.addAttribute("car", car);
         return "detail-booking";
-}
+    }
 
-//DAFTAR MOBIL
+    //DAFTAR MOBIL
     @GetMapping("/daftar-mobil")
     public String dataCar(Model model){
         model.addAttribute("car", carRepository.findAll());

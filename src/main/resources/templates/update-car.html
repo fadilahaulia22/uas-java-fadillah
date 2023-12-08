@@ -13,11 +13,15 @@
   <body>
     <div class="container">
       <h1>Update Car</h1>
-      <form th:action="@{/add-save-car}"
+
+      <form th:if="${car.idCar != null}" th:action="@{/update-save-car}" th:object="${car}" method="post" enctype="multipart/form-data">
+
+
+      <!-- <form th:action="@{/add-save-car}"
         th:object="${car}"
         method="post"
         enctype="multipart/form-data"
-      >
+      > -->
         <input
           type="hidden"
           class="form-control mb-4 col-4"

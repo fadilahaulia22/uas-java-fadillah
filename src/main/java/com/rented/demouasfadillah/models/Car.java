@@ -19,6 +19,7 @@ public class Car {
 
     @Column(length = 64)
     private String image;
+
     private String brand;
     private String typeCar;
     private Integer productionYear;

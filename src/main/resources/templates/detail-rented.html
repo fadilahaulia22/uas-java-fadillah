@@ -42,7 +42,7 @@
   <body>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8 info-panel">
+        <div class="col-lg-6 info-panel">
           <form th:action="@{/calculate-total}" th:object="${rented}" method="post" onsubmit="">
             <div class="row">
               <p>Bandung Regency</p>
@@ -56,7 +56,7 @@
                 <input type="date" name="drop_off_date" id="drop_off_date" />
                 <input type="time" name="drop_off_time" id="drop_off_time" />
               </div>
-              <div class="col-lg">
+              <!-- <div class="col-lg">
                 <div>Supir</div>
                 <label class="text-muted"
                   ><input
@@ -74,7 +74,7 @@
                     checked
                   />Tanpa Supir</label
                 >
-              </div>
+              </div> -->
             </div>
           </form>
         </div>

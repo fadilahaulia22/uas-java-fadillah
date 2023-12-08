@@ -28,17 +28,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item px-2">
-                            <a class="nav-link" aria-current="page" th:href="@{/beranda-awal}">Home</a>
+                            <a class="nav-link" aria-current="page" th:href="@{/beranda}">Home</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" th:href="@{/about}">About</a>
                         </li>
                         <li class="nav-item px-2">
                             <a class="nav-link" th:href="@{/contact}">Contact</a>
                         </li>
                         <li class="nav-item px-3">
                             <a class="nav-link " th:href="@{/login-user}"> 
-                            <button class="btn-2 btnLogin-popup">Login</button></a>
+                            <button class="btn">Login</button></a>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +58,7 @@
                                 "Embark on a Journey of Automotive Delights: From Sleek Rides to Spacious Drives, We
                                 Have the Perfect Vehicle to Suit Every Preference and Need."
                             </p>
-                            <button class="btn mt-5">Order Now</button>
+                            <button class="btn mt-5"><a th:href="@{login-user}">Order Now</a></button>
                         </div>
                         <div class="col-12 col-lg-6">
                             <div class="d-flex justify-content-end">
@@ -91,7 +91,7 @@
                                     Starts from Rp 299.000/Day <br>
                                     Clean Trip & Clean Trip+ Available</p>
                                 </p>
-                                <button class="btn">Order Now</button>
+                                <button class="btn"><a th:href="@{/login-user}">Order Now</a></button>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                     Starts from Rp 299.000/Day <br>
                                     Clean Trip & Clean Trip+ Available
                                 </p>
-                                <button class="btn">Order Now</button>
+                                <button class="btn"><a th:href="@{/login-user}">Order Now</a></button>
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                                     Manual/Matic <br>
                                     Starts from Rp 299.000/Day <br>
                                     Clean Trip & Clean Trip+ Available</p>
-                                <button class="btn">Order Now</button>
+                                <button class="btn"><a th:href="@{/login-user}">Order Now</a></button>
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                                     Starts from Rp 299.000/Day <br>
                                     Clean Trip & Clean Trip+ Available</p>
                                 </p>
-                                <button class="btn">Order Now</button>
+                                <button class="btn"><a th:href="@{/login-user}">Order Now</a> </button>
                             </div>
                         </div>
                     </div>
@@ -178,10 +178,7 @@
                                                 <img src="sandri.jpg" width="100px" class="rounded-circle pb-4"
                                                     alt="" />
                                                 <p class="testimonial-text pb-2">
-                                                    FoodieXpress has transformed the way I enjoy meals.
-                                                    The convenience of ordering my favorite dishes from
-                                                    local restaurants and having them delivered to my
-                                                    doorstep is simply fantastic.
+                                                    "VelocityRides has revolutionized the way I experience transportation. The ease of renting my preferred vehicles, from sleek rides to spacious drives, and having them available at my fingertips is simply extraordinary."
                                                 </p>
                                                 <h3 class="testimonials-name">Sarah M</h3>
                                             </div>
@@ -200,10 +197,7 @@
                                                 <img src="chanye.jpg" width="100px" class="rounded-circle pb-4"
                                                     alt="" />
                                                 <p class="testimonial-text pb-2">
-                                                    FoodieXpress has transformed the way I enjoy meals.
-                                                    The convenience of ordering my favorite dishes from
-                                                    local restaurants and having them delivered to my
-                                                    doorstep is simply fantastic.
+                                                    "VelocityRides has revolutionized the way I experience transportation. The ease of renting my preferred vehicles, from sleek rides to spacious drives, and having them available at my fingertips is simply extraordinary."
                                                 </p>
                                                 <h3 class="testimonials-name">John j</h3>
                                             </div>
@@ -242,8 +236,8 @@
                 <div class="col-12 col-lg-4">
                     <h3 class="fw-bold pb-3">Our Link</h3>
                     <div class="d-flex flex-column">
-                        <a th:href="@{/beranda-awal}" class="text-dark">Home</a>
-                        <a th:href="about" class="text-dark">About</a>
+                        <a th:href="@{/beranda}" class="text-dark">Home</a>
+                        <a th:href="@{/about}" class="text-dark">About</a>
                         <a th:href="@{/contact}" class="text-dark">Contact</a>
                         <a th:href="@{/login-user}" class="text-dark">Login</a>
                     </div>

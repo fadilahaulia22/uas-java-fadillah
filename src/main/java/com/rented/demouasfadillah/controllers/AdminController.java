@@ -54,8 +54,8 @@ public class AdminController {
         return "show-admin";
     }
 
-    // REGISTER
-    @GetMapping("/register")
+    // REGISTER ADMIN
+    @GetMapping("/register-admin")
     public String regisAdmin(Model model) {
         Admin admin = new Admin();
         model.addAttribute("login", admin);
@@ -63,7 +63,7 @@ public class AdminController {
     }
 
     // SAVE ADMIN
-    @PostMapping("/reg-admin")
+    @PostMapping("/save-admin")
     public String regAdmin(@ModelAttribute("login") Admin admin) {
         adminRepository.save(admin);
         return "redirect:/login-admin";
@@ -84,7 +84,7 @@ public class AdminController {
         return "redirect:/list-admin";
     }
 
-    // LOGIN
+    // LOGIN ADMIN
     @GetMapping("/login-admin")
     public String loginAdmin(Model model) {
         Admin admin = new Admin();
@@ -93,7 +93,7 @@ public class AdminController {
     }
 
     // PROSES PENCARIAN USERNAME & PASSWORD YANG SESUAI DI DATABASE
-    @PostMapping("/post-login")
+    @PostMapping("/post-login-admin")
     public String loginAdmin(@ModelAttribute("login") Admin admin, RedirectAttributes attributes) {
         List<Admin> admins = adminRepository.findAll();
         boolean found = false;
